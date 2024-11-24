@@ -33,5 +33,12 @@ return new class extends Migration
     public function down(): void
     {
         //
+        // Eliminar la clave foránea antes de eliminar la tabla
+        Schema::table('historiales_usuarios', function (Blueprint $table) {
+            $table->dropForeign(['idUsuarios']);  // Eliminar la clave foránea
+        });
+
+        // Eliminar la tabla
+        Schema::dropIfExists('historiales_usuarios');
     }
 };

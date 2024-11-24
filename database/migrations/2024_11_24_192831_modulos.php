@@ -34,6 +34,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('modulos', function (Blueprint $table) {
+            $table->dropForeign(['idPermisos']);
+            $table->dropForeign(['idUsuarioPuesto']);
+            // Eliminar la clave foránea
+        });
+
+        // Eliminar la tabla
+        Schema::dropIfExists('modulos');
     }
 };

@@ -30,6 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        // Eliminar la clave foránea antes de eliminar la tabla
+        Schema::table('ventas', function (Blueprint $table) {
+            $table->dropForeign(['idMovimientosStock']);
+        });
+        Schema::dropIfExists('ventas');
     }
 };
