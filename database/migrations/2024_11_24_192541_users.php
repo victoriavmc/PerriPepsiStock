@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id('idUsuarios');
             $table->string('username', 100);
             $table->string('password', 255);
@@ -30,11 +30,11 @@ return new class extends Migration
     {
         //
         // Eliminar la clave foránea antes de eliminar la tabla
-        Schema::table('usuarios', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['idDatosPersonales']);  // Eliminar la clave foránea
         });
 
         // Eliminar la tabla usuarios
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 };

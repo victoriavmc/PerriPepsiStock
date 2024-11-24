@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('idMovimientosStock')->references('idMovimientosStock')->on('movimientos_stocks');
 
             $table->unsignedBigInteger('idUsuarios');
-            $table->foreign('idUsuarios')->references('idUsuarios')->on('usuarios');
+            $table->foreign('idUsuarios')->references('idUsuarios')->on('users');
         });
     }
 

@@ -11,9 +11,9 @@ class UsuarioPuesto extends Model
     public $timestamps = true;
 
     // Relaciono con un Usuario (muchos a uno)
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class, 'idUsuarios');  // Relación muchos a uno
+        return $this->belongsTo(User::class, 'idUsuarios');  // Relación muchos a uno
     }
 
     // Relaciono con un PuestoLaboral (muchos a uno)
