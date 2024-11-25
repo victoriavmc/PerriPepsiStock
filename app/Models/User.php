@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'users';
     protected $primaryKey = 'idUsuarios';
     public $timestamps = false;
+    protected $fillable = ['username', 'password', 'email'];
+
+
     // Relación uno a uno con la tabla DatoPersonal
     public function datoPersonal()
     {

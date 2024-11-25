@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username', 100);
             $table->string('password', 255);
             $table->string('email', 250)->unique()->comment('Correo electrónico del usuario');
-            $table->string('pin', 255);
+            $table->string('pin', 255)->nullable();
             // Claves foráneas
             $table->unsignedBigInteger('idDatosPersonales');
             $table->foreign('idDatosPersonales')->references('idDatosPersonales')->on('datos_personales');
