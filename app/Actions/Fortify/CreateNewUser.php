@@ -67,7 +67,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         $idDatosPersonales = $this->create_datos($input);
 
-        User::create([
+        $usuario = User::create([
             'username' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
@@ -75,9 +75,9 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         HistorialUsuario::created([
-            'idUsuario' => User::latest()->first()->idUsuarios,
+            'idUsuario' => $usuario->idUsuarios,
         ]);
 
-        return User::latest()->first();
+        return $usuario;
     }
 }
