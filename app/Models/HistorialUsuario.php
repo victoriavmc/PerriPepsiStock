@@ -8,6 +8,7 @@ class HistorialUsuario extends Model
 {
     protected $table = 'historiales_usuarios';
     protected $primaryKey = 'idHistorialUsuario';
+    protected $fillable = ['created_at', 'updated_at', 'deleted_at', 'idUsuarios'];
     public $timestamps = true;
 
     // Relacion con usuarios
