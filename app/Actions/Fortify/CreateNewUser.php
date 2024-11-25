@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Models\DatoPersonal;
+use App\Models\HistorialUsuario;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -62,15 +63,21 @@ class CreateNewUser implements CreatesNewUsers
         return $datoPersonal->idDatosPersonales;
     }
 
-    public function create(array $input): User
+    public function create(array $input)
     {
         $idDatosPersonales = $this->create_datos($input);
 
-        return User::create([
+        User::create([
             'username' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'idDatosPersonales' => $idDatosPersonales,
         ]);
+
+        HistorialUsuario::created([
+            'idUsuario' => User::latest()->first()->idUsuarios,
+        ]);
+
+        return User::latest()->first();
     }
 }
