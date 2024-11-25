@@ -9,6 +9,7 @@ class DatoPersonal extends Model
     //
     protected $table = 'datos_personales';
     protected $primaryKey = 'idDatosPersonales';
+    protected $fillable = ['nombre', 'apellido', 'cuit', 'fechaNacimiento', 'idGenero', 'idNacionalidad'];
     public $timestamps = false;
 
     // Recibe las claves primarias de las tablas nacionalidades y generos
