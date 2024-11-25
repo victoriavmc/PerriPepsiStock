@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class User extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'users';
     protected $primaryKey = 'idUsuarios';
     public $timestamps = false;
+    protected $fillable = ['username', 'password', 'email'];
+
+
     // Relación uno a uno con la tabla DatoPersonal
     public function datoPersonal()
     {
@@ -24,5 +27,11 @@ class Usuario extends Model
     {
         // Un Usuario puede tener múltiples UsuarioPuesto (relación uno a muchos)
         return $this->hasMany(UsuarioPuesto::class, 'idUsuarios');
+    }
+
+    // Relación con la tabla informe inventario
+    public function informeInventario()
+    {
+        return $this->hasMany(InformeInventario::class, 'idUsuarios');
     }
 }

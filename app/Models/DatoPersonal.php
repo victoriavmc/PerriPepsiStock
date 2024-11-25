@@ -23,8 +23,8 @@ class DatoPersonal extends Model
     }
 
     // Pasamos el primary key de datos personales a usuarios
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class, 'idDatosPersonales');
+        return $this->belongsTo(User::class, 'idDatosPersonales');
     }
 }

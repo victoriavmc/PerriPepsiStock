@@ -11,8 +11,8 @@ class HistorialUsuario extends Model
     public $timestamps = true;
 
     // Relacion con usuarios
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(Usuario::class, 'idUsuarios');  // Relación muchos a uno
+        return $this->belongsTo(User::class, 'idUsuarios');  // Relación muchos a uno
     }
 }

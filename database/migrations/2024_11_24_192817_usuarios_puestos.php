@@ -23,7 +23,7 @@ return new class extends Migration
 
             // Claves foráneas
             $table->unsignedBigInteger('idUsuarios');
-            $table->foreign('idUsuarios')->references('idUsuarios')->on('usuarios');
+            $table->foreign('idUsuarios')->references('idUsuarios')->on('users');
 
             $table->unsignedBigInteger('idPuestosLaborales');
             $table->foreign('idPuestosLaborales')->references('idPuestosLaborales')->on('puestos_laborales');

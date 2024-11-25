@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id('idUsuarios');
             $table->string('username', 100);
             $table->string('password', 255);
             $table->string('email', 250)->unique()->comment('Correo electrónico del usuario');
-            $table->string('pin', 255);
+            $table->string('pin', 255)->nullable();
             // Claves foráneas
             $table->unsignedBigInteger('idDatosPersonales');
             $table->foreign('idDatosPersonales')->references('idDatosPersonales')->on('datos_personales');
@@ -30,11 +30,11 @@ return new class extends Migration
     {
         //
         // Eliminar la clave foránea antes de eliminar la tabla
-        Schema::table('usuarios', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['idDatosPersonales']);  // Eliminar la clave foránea
         });
 
         // Eliminar la tabla usuarios
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 };

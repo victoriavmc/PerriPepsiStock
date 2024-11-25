@@ -15,4 +15,10 @@ class InformeInventario extends Model
     {
         return $this->belongsTo(MovimientoStock::class, 'idMovimientosStock');
     }
+
+    // Relación con la tabla informe inventario
+    public function informeInventario()
+    {
+        return $this->hasMany(InformeInventario::class, 'idUsuarios');
+    }
 }
