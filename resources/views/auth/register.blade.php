@@ -72,7 +72,7 @@
             <div>
                 <div class="mt-4">
                     <x-label for="name" value="{{ __('Usuario') }}" />
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="username" :value="old('name')"
                         autofocus autocomplete="name" />
                 </div>
 
