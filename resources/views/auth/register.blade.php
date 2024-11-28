@@ -1,7 +1,11 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <div class="flex flex-col items-center">
+                <x-authentication-card-logo />
+                <h1 class='flex italic text-2xl'>Registrate</h1>
+            </div>
+
         </x-slot>
 
         <x-validation-errors class="mb-4" />
